@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/yandexmapkit-sample.iml" filepath="$PROJECT_DIR$/yandexmapkit-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yandexmapkitlibrary/yandexmapkitlibrary.iml" filepath="$PROJECT_DIR$/yandexmapkitlibrary/yandexmapkitlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yandexmapkitsample/yandexmapkitsample.iml" filepath="$PROJECT_DIR$/yandexmapkitsample/yandexmapkitsample.iml" />
+    </modules>
+  </component>
+</project>

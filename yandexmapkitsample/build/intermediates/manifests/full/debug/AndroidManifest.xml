@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.mapkittest"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="4" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="ru.mapkittest.YandexMapKitSampleActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.defaultoverlay.DefaultOverlayActivity"
+            android:label="@string/sample1" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.balloonoverlay.two.BalloonOverlayActivity"
+            android:label="@string/sample2two" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.customoverlay.CustomOverlayActivity"
+            android:label="@string/sample3" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.draggableoverlay.DraggableOverlayActivity"
+            android:label="@string/sample4" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.jams.JamsActivity"
+            android:label="@string/sample5" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.maplayers.MapLayersActivity"
+            android:label="@string/sample6" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.maphd.MapHDTilesActivity"
+            android:label="@string/sample7" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.mapevent.MapEventActivity"
+            android:label="@string/sample8" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.scrollview.MapScrollViewActivity"
+            android:label="@string/sample9" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.listview.MapListViewActivity"
+            android:label="@string/sample10" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.mylocation.MapMyLocationChangeActivity"
+            android:label="@string/sample11" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.path.MapPathActivity"
+            android:label="@string/sample12" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.geocode.MapGeoCodeActivity"
+            android:label="@string/sample13" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.mapkittest.zoomspan.ZoomSpanActivity"
+            android:label="@string/sample14" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="yandex.intent.category.MAPKIT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
