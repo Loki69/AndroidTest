@@ -63,7 +63,7 @@ public class Task {
     public static Task getInit(JSONObject task) {
         try {
 
-            GeoPoint location = (task.has("lon") && task.has("lat")) ? (new GeoPoint(task.getDouble("lon"), task.getDouble("lat"))) : (new GeoPoint(-1, -1));
+            GeoPoint location = (task.has("location")) ? (getGetoPoint(task.getJSONObject("location"))) : (new GeoPoint(-1, -1));
             String ID = (task.has("ID")) ? (task.getString("ID")) : ("");
             String locationText = (task.has("locationText")) ? (task.getString("locationText")) : ("");
             int price = (task.has("price")) ? (task.getInt("price")) : (-1);
@@ -81,6 +81,9 @@ public class Task {
             e.printStackTrace();
             return new Task();
         }
+    }
+    private static GeoPoint getGetoPoint(JSONObject location) throws JSONException {
+        return new GeoPoint(location.getDouble("lat"), location.getDouble("lon"));
     }
 
     private static List<Price> getPrices(JSONArray listPrises) {
@@ -102,6 +105,6 @@ public class Task {
     }
 
     public boolean isEmpty() {
-        return new GeoPoint(-1, -1).equals(this.location) && "".equals(this.ID) && (prices.size() == -1) && (price == -1);
+        return new GeoPoint(-1, -1).equals(this.location) && "".equals(this.ID) && (prices.size() == 0) && (price == -1);
     }
 }

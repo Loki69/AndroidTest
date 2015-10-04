@@ -10,17 +10,12 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import ru.mapkittest.R;
-import ru.mapkittest.YandexMapKitSampleActivity;
 import ru.mapkittest.web.connec.WebConnector;
 import ru.yandex.yandexmapkit.overlay.OverlayItem;
 import ru.yandex.yandexmapkit.overlay.balloon.BalloonItem;
-import ru.yandex.yandexmapkit.utils.GeoPoint;
 
 /**
  * Created by Павел on 04.10.2015.
@@ -54,7 +49,6 @@ public class Tasks {
             if (!task.isEmpty()) {
                 tasks.add(task);
             }
-            Log.e("Json", jsonObject.toString());
         }
     }
 
@@ -65,31 +59,36 @@ public class Tasks {
         return singleton;
     }
 
-    public List<OverlayItem> getArrayMapItem(YandexMapKitSampleActivity activity) {
+    public List<OverlayItem> getArrayMapItem(Activity activity) {
         List<OverlayItem> result = new ArrayList();
         for (Task task : tasks) {
-            result.add(generatOverlayItem(task,activity));
+            result.add(generatOverlayItem(task, activity));
         }
         return result;
     }
 
-    private OverlayItem generatOverlayItem(Task task, YandexMapKitSampleActivity activity) {
-        Resources res = activity.getResources();
-        OverlayItem kremlin = new OverlayItem(task.location, res.getDrawable(R.drawable.shop));
-        return kremlin;
+    private OverlayItem generatOverlayItem(Task task, Activity activity) {
+        Resources resources = activity.getResources();
+        OverlayItem overlayItem = new OverlayItem(task.location, resources.getDrawable(R.drawable.shop));
+
+        BalloonItem bi = new BalloonItem(activity, overlayItem.getGeoPoint());
+        bi.setText(generatMesseg(task));
+
+        overlayItem.setBalloonItem(bi);
+        return overlayItem;
     }
 
-    private String formatingMesseg(String title, String longText, List<Price> prises, Date date, String locationText) {
-        return String.format("\t%s\n%s\n%s\nDate:%s\nLocation:", title, longText, date.toString(), locationText);
+    private String generatMesseg(Task task) {
+        return String.format("\t%s\n%s\n%s\nDate:%s\nLocation: %s", task.title, task.longText, listPriseToString(task.prices), task.date, task.locationText);
     }
 
     private String listPriseToString(List<Price> prises) {
         StringBuilder sb = new StringBuilder("");
         if (!prises.isEmpty()) {
-            sb.append("Prices:");
+            sb.append("Prices:\n");
             for (Price price : prises) {
-                sb.append("\t\tPrice:").append(price.price);
-                sb.append("\t\t\"Description:").append(price.description);
+                sb.append("\t\tPrice:").append(price.price).append("\n");
+                sb.append("\t\tDescription:\n").append("\t\t").append(price.description).append("\n");
             }
         }
         return sb.toString();
