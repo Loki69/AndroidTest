@@ -2,7 +2,6 @@ package ru.mapkittest.web.tasks;
 
 import android.app.Activity;
 import android.content.res.Resources;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ import ru.yandex.yandexmapkit.overlay.balloon.BalloonItem;
  */
 public class Tasks {
     private static Tasks singleton;
-    private final String urlData = "http://test.boloid.com:9000/tasks";
+    private static final String urlData = "http://test.boloid.com:9000/tasks";
     private List<Task> tasks = new ArrayList<Task>();
 
     private Tasks() {
@@ -57,6 +56,16 @@ public class Tasks {
             singleton = new Tasks();
         }
         return singleton;
+    }
+
+    public void refreshData(){
+        try {
+            init();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<OverlayItem> getArrayMapItem(Activity activity) {

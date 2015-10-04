@@ -51,15 +51,16 @@ public final class R {
     public static final class id {
         public static final int balloon_image_view1=0x7f060001;
         public static final int balloon_text_view1=0x7f060000;
+        public static final int button=0x7f060003;
         public static final int map=0x7f060002;
-        public static final int ymk_balloon_text_view=0x7f060003;
-        public static final int ymk_find_me=0x7f06000a;
-        public static final int ymk_scale=0x7f060006;
-        public static final int ymk_screen_buttons_bottom=0x7f060005;
-        public static final int ymk_screen_buttons_top=0x7f060004;
-        public static final int ymk_semaphore=0x7f060007;
-        public static final int ymk_zoom_in=0x7f060008;
-        public static final int ymk_zoom_out=0x7f060009;
+        public static final int ymk_balloon_text_view=0x7f060004;
+        public static final int ymk_find_me=0x7f06000b;
+        public static final int ymk_scale=0x7f060007;
+        public static final int ymk_screen_buttons_bottom=0x7f060006;
+        public static final int ymk_screen_buttons_top=0x7f060005;
+        public static final int ymk_semaphore=0x7f060008;
+        public static final int ymk_zoom_in=0x7f060009;
+        public static final int ymk_zoom_out=0x7f06000a;
     }
     public static final class layout {
         public static final int balloon_image_layout=0x7f030000;

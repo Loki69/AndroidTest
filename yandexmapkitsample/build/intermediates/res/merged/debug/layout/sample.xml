@@ -6,8 +6,15 @@
 	<ru.yandex.yandexmapkit.MapView
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="412dp"
+        android:layout_height="453dp"
         android:apiKey="1234567890" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refresh"
+            android:id="@+id/button" />
 </LinearLayout>
 
 <!-- From: file:/C:/Project/Android/yandexmapkit-sample/yandexmapkitsample/src/main/res/layout/sample.xml -->
