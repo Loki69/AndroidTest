@@ -1,47 +1,45 @@
 package ru.mapkittest.web.tasks;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Павел on 04.10.2015.
  */
-public class Price {
-    private Integer price;
-    private String description;
-    private Integer mediaType;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+class Price {
+    public final int price;
+    public final String description;
+    public final int mediaType;
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
+    private Price(int price, String description, int mediaType) {
         this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getMediaType() {
-        return mediaType;
-    }
-
-    public void setMediaType(Integer mediaType) {
         this.mediaType = mediaType;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    private Price() {
+        this.price = -1;
+        this.description = "";
+        this.mediaType = -1;
     }
 
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
+    protected static Price getInit(JSONObject priceObject) {
+        Price result = null;
+        try {
+            int price = (priceObject.has("price")) ? (priceObject.getInt("price")) : (-1);
+            String description = (priceObject.has("description")) ? (priceObject.getString("description")) : ("");
+            int mediaType = (priceObject.has("mediaType")) ? (priceObject.getInt("mediaType")) : (-1);
+            result = new Price(price, description, mediaType);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            result = new Price();
+        }
+        return result;
     }
+
+    protected boolean isEmpty() {
+        return this.price == -1 && "".equals(this.description);
+    }
+
 }
 
